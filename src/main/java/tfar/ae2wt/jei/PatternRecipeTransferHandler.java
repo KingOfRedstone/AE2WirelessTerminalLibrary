@@ -7,7 +7,7 @@ import mezz.jei.api.recipe.transfer.IRecipeTransferHandlerHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.crafting.IRecipe;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 
 public class PatternRecipeTransferHandler extends RecipeTransferHandler<WirelessPatternTerminalContainer> {
     PatternRecipeTransferHandler(Class<WirelessPatternTerminalContainer> containerClass, IRecipeTransferHandlerHelper helper) {

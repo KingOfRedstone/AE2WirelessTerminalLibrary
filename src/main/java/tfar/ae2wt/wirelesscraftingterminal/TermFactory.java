@@ -28,9 +28,9 @@ public class TermFactory implements INamedContainerProvider {
 
     @Nullable
     @Override
-    public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
+    public Container createMenu(int window, PlayerInventory inv, PlayerEntity player) {
 
-        WirelessCraftingTerminalContainer c = new WirelessCraftingTerminalContainer(p_createMenu_1_, p_createMenu_2_, obj);
+        WirelessCraftingTerminalContainer c = new WirelessCraftingTerminalContainer(window, inv, obj);
         // Set the original locator on the opened server-side container for it to more
         // easily remember how to re-open after being closed.
         c.setLocator(locator);

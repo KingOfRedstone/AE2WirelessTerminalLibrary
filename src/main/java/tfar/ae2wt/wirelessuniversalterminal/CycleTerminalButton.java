@@ -1,4 +1,4 @@
-package tfar.ae2wt.wut;
+package tfar.ae2wt.wirelessuniversalterminal;
 
 import appeng.client.gui.widgets.ITooltip;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -7,7 +7,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
 public class CycleTerminalButton extends Button implements ITooltip {

@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.network.NetworkEvent;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 
 import java.util.function.Supplier;
 

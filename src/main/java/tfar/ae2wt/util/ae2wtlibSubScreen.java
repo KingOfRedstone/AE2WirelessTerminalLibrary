@@ -1,10 +1,8 @@
 package tfar.ae2wt.util;
 
 import appeng.client.gui.AEBaseScreen;
-import appeng.client.gui.Icon;
 import appeng.client.gui.WidgetContainer;
 import appeng.client.gui.widgets.TabButton;
-import appeng.core.localization.GuiText;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.inventory.container.ContainerType;
@@ -16,10 +14,9 @@ import tfar.ae2wt.init.ModItems;
 import tfar.ae2wt.net.C2SSwitchGuiPacket;
 import tfar.ae2wt.net.PacketHandler;
 import tfar.ae2wt.wirelesscraftingterminal.WCTGuiObject;
-import tfar.ae2wt.wpt.WPTGuiObject;
+import tfar.ae2wt.wirelesspatternterminal.WPTGuiObject;
 
 import javax.annotation.Nullable;
-import java.util.function.Consumer;
 
 public final class ae2wtlibSubScreen {
 

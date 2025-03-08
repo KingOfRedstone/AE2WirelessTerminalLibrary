@@ -12,7 +12,6 @@ import appeng.client.gui.style.ScreenStyle;
 import appeng.client.gui.widgets.AETextField;
 import appeng.client.gui.widgets.Scrollbar;
 import appeng.client.gui.widgets.SettingToggleButton;
-import appeng.container.implementations.InterfaceTerminalContainer;
 import appeng.core.AEConfig;
 import appeng.core.Api;
 import appeng.core.AppEng;
@@ -35,8 +34,7 @@ import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import org.lwjgl.glfw.GLFW;
-import tfar.ae2wt.wut.CycleTerminalButton;
-import tfar.ae2wt.wut.IUniversalTerminalCapable;
+import tfar.ae2wt.wirelessuniversalterminal.IUniversalTerminalCapable;
 
 import java.util.*;
 

@@ -7,7 +7,7 @@ import mezz.jei.api.registration.IRecipeTransferRegistration;
 import net.minecraft.util.ResourceLocation;
 import tfar.ae2wt.AE2WirelessTerminals;
 import tfar.ae2wt.wirelesscraftingterminal.WirelessCraftingTerminalContainer;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 
 @JeiPlugin
 public class JeiPlug implements IModPlugin {

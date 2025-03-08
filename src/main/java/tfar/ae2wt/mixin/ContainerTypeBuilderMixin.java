@@ -15,8 +15,8 @@ import tfar.ae2wt.wirelesscraftingterminal.WCTGuiObject;
 import tfar.ae2wt.wirelesscraftingterminal.WCTItem;
 import tfar.ae2wt.wirelessinterfaceterminal.WITGuiObject;
 import tfar.ae2wt.wirelessinterfaceterminal.WITItem;
-import tfar.ae2wt.wpt.WPTGuiObject;
-import tfar.ae2wt.wpt.WPTItem;
+import tfar.ae2wt.wirelesspatternterminal.WPTGuiObject;
+import tfar.ae2wt.wirelesspatternterminal.WPTItem;
 
 @Mixin(value = ContainerTypeBuilder.class, remap = false)
 public class ContainerTypeBuilderMixin<I> {
@@ -36,11 +36,11 @@ public class ContainerTypeBuilderMixin<I> {
         if (it.getItem() instanceof AbstractWirelessTerminalItem) {
             AbstractWirelessTerminalItem awti = (AbstractWirelessTerminalItem)it.getItem();
             if (awti instanceof WCTItem) {
-                cir.setReturnValue(hostInterface.cast(new WCTGuiObject(awti, it, player, locator.getItemIndex())));
+                cir.setReturnValue(hostInterface.cast(new WCTGuiObject(awti, it, player)));
             } else if (awti instanceof WPTItem) {
-                cir.setReturnValue(hostInterface.cast(new WPTGuiObject(awti, it, player, locator.getItemIndex())));
+                cir.setReturnValue(hostInterface.cast(new WPTGuiObject(awti, it, player)));
             } else if (awti instanceof WITItem) {
-                cir.setReturnValue(hostInterface.cast(new WITGuiObject(awti, it, player, locator.getItemIndex())));
+                cir.setReturnValue(hostInterface.cast(new WITGuiObject(awti, it, player)));
             }
         }
     }

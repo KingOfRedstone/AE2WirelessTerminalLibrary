@@ -59,5 +59,10 @@ public class PacketHandler {
                 S2CInterfaceTerminalPacket::encode,
                 S2CInterfaceTerminalPacket::new,
                 S2CInterfaceTerminalPacket::handle);
+
+        INSTANCE.registerMessage(i++, TerminalKeyPacket.class,
+                TerminalKeyPacket::encode,
+                TerminalKeyPacket::new,
+                TerminalKeyPacket::handle);
     }
 }

@@ -11,9 +11,9 @@ import tfar.ae2wt.init.ModItems;
 import tfar.ae2wt.util.ContainerHelper;
 import tfar.ae2wt.wirelesscraftingterminal.WCTItem;
 import tfar.ae2wt.wirelessinterfaceterminal.WITItem;
-import tfar.ae2wt.wpt.WPTItem;
-import tfar.ae2wt.wut.WUTItem;
-import tfar.ae2wt.wut.WUTHandler;
+import tfar.ae2wt.wirelesspatternterminal.WPTItem;
+import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
+import tfar.ae2wt.wirelessuniversalterminal.WUTHandler;
 
 import java.util.function.Supplier;
 

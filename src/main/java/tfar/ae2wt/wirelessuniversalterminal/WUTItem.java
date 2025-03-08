@@ -1,4 +1,4 @@
-package tfar.ae2wt.wut;
+package tfar.ae2wt.wirelessuniversalterminal;
 
 import appeng.container.ContainerLocator;
 import appeng.core.AEConfig;

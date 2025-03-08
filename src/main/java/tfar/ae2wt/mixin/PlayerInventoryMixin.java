@@ -11,6 +11,7 @@ import appeng.api.storage.data.IAEItemStack;
 import appeng.core.Api;
 import appeng.me.helpers.PlayerSource;
 import appeng.util.item.AEItemStack;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tfar.ae2wt.wirelesscraftingterminal.CraftingTerminalHandler;
 import tfar.ae2wt.wirelesscraftingterminal.magnet_card.ItemMagnetCard;
 import net.minecraft.entity.player.PlayerEntity;
@@ -29,6 +30,11 @@ public class PlayerInventoryMixin {
     @Shadow
     @Final
     public PlayerEntity player;
+
+    @Inject(method = "tick", at = @At(value = "HEAD"))
+    public void tick(CallbackInfo ci) {
+        System.out.println("TICK");
+    }
 
     @Inject(method = "addItemStackToInventory(Lnet/minecraft/item/ItemStack;)Z", at = @At(value = "INVOKE"), require = 1, allow = 1)
     public void insertStackInME(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {

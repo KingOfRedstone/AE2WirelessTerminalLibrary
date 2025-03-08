@@ -1,4 +1,4 @@
-package tfar.ae2wt.wpt;
+package tfar.ae2wt.wirelesspatternterminal;
 
 import appeng.container.ContainerLocator;
 import appeng.core.localization.GuiText;

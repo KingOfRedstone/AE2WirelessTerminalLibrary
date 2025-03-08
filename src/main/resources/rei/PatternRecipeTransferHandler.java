@@ -1,6 +1,6 @@
 package tfar.ae2wt.rei;
 
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 import me.shedaniel.rei.api.AutoTransferHandler;
 import me.shedaniel.rei.api.RecipeDisplay;
 import me.shedaniel.rei.plugin.DefaultPlugin;

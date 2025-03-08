@@ -1,4 +1,4 @@
-package tfar.ae2wt.wpt;
+package tfar.ae2wt.wirelesspatternterminal;
 
 import appeng.api.config.ActionItems;
 import appeng.client.gui.me.items.ItemTerminalScreen;
@@ -18,8 +18,8 @@ import tfar.ae2wt.net.server.C2SClearPatternPacket;
 import tfar.ae2wt.net.server.C2SEncodePatternPacket;
 import tfar.ae2wt.net.server.C2STogglePatternCraftingModePacket;
 import tfar.ae2wt.net.server.C2STogglePatternSubsitutionPacket;
-import tfar.ae2wt.wut.CycleTerminalButton;
-import tfar.ae2wt.wut.IUniversalTerminalCapable;
+import tfar.ae2wt.wirelessuniversalterminal.CycleTerminalButton;
+import tfar.ae2wt.wirelessuniversalterminal.IUniversalTerminalCapable;
 
 public class WirelessPatternTerminalScreen extends ItemTerminalScreen<WirelessPatternTerminalContainer> implements IUniversalTerminalCapable {
 

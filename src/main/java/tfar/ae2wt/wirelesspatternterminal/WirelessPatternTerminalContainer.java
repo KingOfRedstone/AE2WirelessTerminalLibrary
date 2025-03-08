@@ -1,4 +1,4 @@
-package tfar.ae2wt.wpt;
+package tfar.ae2wt.wirelesspatternterminal;
 
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
@@ -53,15 +53,24 @@ import tfar.ae2wt.net.server.C2STogglePatternCraftingModePacket;
 import tfar.ae2wt.net.server.C2STogglePatternSubsitutionPacket;
 import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 import tfar.ae2wt.terminal.WTInventoryHandler;
-import tfar.ae2wt.wut.WUTItem;
+import tfar.ae2wt.util.ContainerHelper;
+import tfar.ae2wt.wirelessinterfaceterminal.WITGuiObject;
+import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
 
 public class WirelessPatternTerminalContainer extends ItemTerminalContainer implements IOptionalSlotHost, IContainerCraftingPacket {
 
     public static WirelessPatternTerminalContainer openClient(int windowId, PlayerInventory inv) {
         PlayerEntity player = inv.player;
-        ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
+        /*ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
         ContainerLocator locator = ContainerLocator.forHand(inv.player, Hand.MAIN_HAND);
-        WPTGuiObject host = new WPTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        WPTGuiObject host = new WPTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);*/
+        ItemStack it = ContainerHelper.getTerminal(player, "pattern");
+
+        if (it == null) {
+            return null;
+        }
+
+        WPTGuiObject host = new WPTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
         return new WirelessPatternTerminalContainer(windowId, inv, host);
     }
 
@@ -77,7 +86,7 @@ public class WirelessPatternTerminalContainer extends ItemTerminalContainer impl
 
     public static void openServer(PlayerEntity player, ContainerLocator locator) {
         ItemStack it = player.inventory.getStackInSlot(locator.getItemIndex());
-        WPTGuiObject accessInterface = new WPTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        WPTGuiObject accessInterface = new WPTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
 
         if (locator.hasItemIndex()) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new TermFactory(accessInterface,locator));

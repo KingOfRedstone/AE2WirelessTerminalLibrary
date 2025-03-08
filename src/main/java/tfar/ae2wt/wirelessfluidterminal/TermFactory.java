@@ -12,10 +12,10 @@ import javax.annotation.Nullable;
 
 public class TermFactory implements INamedContainerProvider {
 
-    private final WFluidTGuiObject obj;
+    private final WFTGuiObject obj;
     private final ContainerLocator locator;
 
-    public TermFactory(WFluidTGuiObject obj, ContainerLocator locator) {
+    public TermFactory(WFTGuiObject obj, ContainerLocator locator) {
 
         this.obj = obj;
         this.locator = locator;

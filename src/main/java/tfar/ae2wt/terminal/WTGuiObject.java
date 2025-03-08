@@ -31,7 +31,7 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public abstract class WTGuiObject implements IGuiItemObject, IEnergySource, IActionHost, IInventorySlotAware {
+public abstract class WTGuiObject implements IGuiItemObject, IEnergySource, IActionHost {
 
     private final FixedViewCellInventory fixedViewCellInventory;
     private final ItemStack effectiveItem;
@@ -43,15 +43,13 @@ public abstract class WTGuiObject implements IGuiItemObject, IEnergySource, IAct
     private double sqRange = Double.MAX_VALUE;
     private double myRange = Double.MAX_VALUE;
     private IStorageGrid sg;
-    private final int inventorySlot;
 
-    public WTGuiObject(final IWirelessTermHandler wh, final ItemStack is, final PlayerEntity ep, int inventorySlot) {
+    public WTGuiObject(final IWirelessTermHandler wh, final ItemStack is, final PlayerEntity ep) {
         String encryptionKey = wh.getEncryptionKey(is);
         effectiveItem = is;
         fixedViewCellInventory = new FixedViewCellInventory(is);
         myPlayer = ep;
         wth = wh;
-        this.inventorySlot = inventorySlot;
 
         ILocatable obj = null;
 
@@ -155,11 +153,6 @@ public abstract class WTGuiObject implements IGuiItemObject, IEnergySource, IAct
             }
         }
         return null;
-    }
-
-    @Override
-    public int getInventorySlot() {
-        return inventorySlot;
     }
 
     @Override

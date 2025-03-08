@@ -1,10 +1,11 @@
-package tfar.ae2wt.wpt;
+package tfar.ae2wt.wirelesspatternterminal;
 
 import appeng.api.features.IWirelessTermHandler;
 import appeng.api.implementations.guiobjects.IPortableCell;
 import appeng.api.implementations.tiles.IViewCellStorage;
 import appeng.api.networking.crafting.ICraftingPatternDetails;
 import appeng.api.storage.data.IAEItemStack;
+import appeng.container.interfaces.IInventorySlotAware;
 import appeng.core.Api;
 import appeng.tile.inventory.AppEngInternalInventory;
 import appeng.util.inv.IAEAppEngInventory;
@@ -12,14 +13,14 @@ import appeng.util.inv.InvOperation;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.items.IItemHandler;
 import tfar.ae2wt.init.Menus;
-import tfar.ae2wt.init.ModItems;
 import tfar.ae2wt.terminal.SlotType;
 import tfar.ae2wt.terminal.WTGuiObject;
 import tfar.ae2wt.terminal.InternalInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import tfar.ae2wt.util.ContainerHelper;
 
-public class WPTGuiObject extends WTGuiObject implements IPortableCell, IAEAppEngInventory, IViewCellStorage {
+public class WPTGuiObject extends WTGuiObject implements IPortableCell, IAEAppEngInventory, IViewCellStorage, IInventorySlotAware {
 
     private boolean craftingMode = true;
     private boolean substitute = false;
@@ -27,8 +28,8 @@ public class WPTGuiObject extends WTGuiObject implements IPortableCell, IAEAppEn
     private final AppEngInternalInventory output;
     private final AppEngInternalInventory pattern;
 
-    public WPTGuiObject(final IWirelessTermHandler wh, final ItemStack is, final PlayerEntity ep, int inventorySlot) {
-        super(wh, is, ep, inventorySlot);
+    public WPTGuiObject(final IWirelessTermHandler wh, final ItemStack is, final PlayerEntity ep) {
+        super(wh, is, ep);
         crafting = new InternalInventory(this, 9, SlotType.pattern_crafting, is);
         output = new InternalInventory(this, 3, SlotType.output, is);
         pattern = new InternalInventory(this, 2, SlotType.pattern, is);
@@ -101,4 +102,10 @@ public class WPTGuiObject extends WTGuiObject implements IPortableCell, IAEAppEn
     public ContainerType<?> getType() {
         return Menus.PATTERN;
     }
+
+    @Override
+    public int getInventorySlot() {
+        return ContainerHelper.getTerminalItemSlot(getPlayer(), "pattern");
+    }
+
 }

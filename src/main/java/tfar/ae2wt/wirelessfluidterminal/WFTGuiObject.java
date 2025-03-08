@@ -9,10 +9,10 @@ import net.minecraft.item.ItemStack;
 import tfar.ae2wt.init.Menus;
 import tfar.ae2wt.terminal.WTGuiObject;
 
-public class WFluidTGuiObject extends WTGuiObject implements IPortableCell , IViewCellStorage {
+public class WFTGuiObject extends WTGuiObject implements IPortableCell , IViewCellStorage {
 
-    public WFluidTGuiObject(final IWirelessTermHandler wh, final ItemStack is, final PlayerEntity ep, int inventorySlot) {
-        super(wh, is, ep, inventorySlot);
+    public WFTGuiObject(final IWirelessTermHandler wh, final ItemStack is, final PlayerEntity ep) {
+        super(wh, is, ep);
     }
 
     @Override

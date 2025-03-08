@@ -8,8 +8,8 @@ import tfar.ae2wt.init.Menus;
 import tfar.ae2wt.terminal.WTGuiObject;
 
 public class WITGuiObject extends WTGuiObject {
-    public WITGuiObject(IWirelessTermHandler wh, ItemStack is, PlayerEntity ep, int inventorySlot) {
-        super(wh, is, ep, inventorySlot);
+    public WITGuiObject(IWirelessTermHandler wh, ItemStack is, PlayerEntity ep) {
+        super(wh, is, ep);
     }
 
     @Override

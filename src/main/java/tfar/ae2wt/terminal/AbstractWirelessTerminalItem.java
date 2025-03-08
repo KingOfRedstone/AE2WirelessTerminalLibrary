@@ -48,23 +48,30 @@ public abstract class AbstractWirelessTerminalItem extends AEBasePoweredItem imp
             return;
         }
 
+        if (canOpen(item, player)) {
+            open(player, ContainerLocator.forHand(player, hand));
+        }
+    }
+
+    public boolean canOpen(ItemStack item, PlayerEntity player) {
         final String unparsedKey = getEncryptionKey(item);
         if (unparsedKey.isEmpty()) {
             player.sendMessage(PlayerMessages.DeviceNotLinked.get(), Util.DUMMY_UUID);
-            return;
+            return false;
         }
 
         final long parsedKey = Long.parseLong(unparsedKey);
         final ILocatable securityStation = Api.instance().registries().locatable().getLocatableBy(parsedKey);
         if (securityStation == null) {
             player.sendMessage(PlayerMessages.StationCanNotBeLocated.get(), Util.DUMMY_UUID);
-            return;
+            return false;
         }
 
         if (hasPower(player, 0.5, item)) {
-            open(player, ContainerLocator.forHand(player, hand));
+            return true;
         } else {
             player.sendMessage(PlayerMessages.DeviceNotPowered.get(), Util.DUMMY_UUID);
+            return false;
         }
     }
 

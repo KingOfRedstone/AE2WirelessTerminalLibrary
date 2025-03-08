@@ -43,7 +43,9 @@ import tfar.ae2wt.net.client.S2CInterfaceTerminalPacket;
 import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 import tfar.ae2wt.terminal.WTGuiObject;
 import tfar.ae2wt.terminal.WTInventoryHandler;
-import tfar.ae2wt.wut.WUTItem;
+import tfar.ae2wt.util.ContainerHelper;
+import tfar.ae2wt.wirelessfluidterminal.WFTGuiObject;
+import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,16 +54,23 @@ public class WirelessInterfaceTerminalContainer extends AEBaseContainer {
 
     public static WirelessInterfaceTerminalContainer openClient(int windowId, PlayerInventory inv) {
         PlayerEntity player = inv.player;
-        ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
+        /*ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
         ContainerLocator locator = ContainerLocator.forHand(inv.player, Hand.MAIN_HAND);
-        WTGuiObject host = new WITGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        WTGuiObject host = new WITGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);*/
+        ItemStack it = ContainerHelper.getTerminal(player, "interface");
+
+        if (it == null) {
+            return null;
+        }
+
+        WITGuiObject host = new WITGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
         return new WirelessInterfaceTerminalContainer(windowId, inv, host);
     }
 
     public static void openServer(PlayerEntity player, ContainerLocator locator) {
 
         ItemStack it = player.inventory.getStackInSlot(locator.getItemIndex());
-        WTGuiObject accessInterface = new WITGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        WTGuiObject accessInterface = new WITGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
 
         if (locator.hasItemIndex()) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new TermFactory(accessInterface,locator));

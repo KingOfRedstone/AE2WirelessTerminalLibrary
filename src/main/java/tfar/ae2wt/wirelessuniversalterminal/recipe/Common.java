@@ -1,4 +1,4 @@
-package tfar.ae2wt.wut.recipe;
+package tfar.ae2wt.wirelessuniversalterminal.recipe;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ICraftingRecipe;

@@ -9,7 +9,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.network.NetworkEvent;
 import tfar.ae2wt.wirelesscraftingterminal.WirelessCraftingTerminalContainer;
 import tfar.ae2wt.wirelessinterfaceterminal.WirelessInterfaceTerminalContainer;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 
 import java.util.function.Supplier;
 

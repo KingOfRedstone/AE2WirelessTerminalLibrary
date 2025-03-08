@@ -2,7 +2,7 @@ package tfar.ae2wt.rei;
 
 import tfar.ae2wt.init.ModItems;
 import tfar.ae2wt.wirelesscraftingterminal.WirelessCraftingTerminalContainer;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 import me.shedaniel.rei.api.EntryStack;
 import me.shedaniel.rei.api.RecipeHelper;
 import me.shedaniel.rei.api.plugins.REIPluginV0;

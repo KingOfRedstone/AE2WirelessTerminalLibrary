@@ -12,22 +12,21 @@ import appeng.fluids.util.AEFluidStack;
 import appeng.fluids.util.FluidSoundHelper;
 import appeng.helpers.InventoryAction;
 import appeng.util.Platform;
-import appeng.util.inv.InvOperation;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.fml.network.NetworkHooks;
-import net.minecraftforge.items.IItemHandler;
 import tfar.ae2wt.init.Menus;
 import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
+import tfar.ae2wt.util.ContainerHelper;
+import tfar.ae2wt.wirelesscraftingterminal.WCTGuiObject;
 
 import javax.annotation.Nullable;
 
@@ -43,7 +42,7 @@ public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFl
 
     public static void openServer(PlayerEntity player, ContainerLocator locator) {
         ItemStack it = player.inventory.getStackInSlot(locator.getItemIndex());
-        WFluidTGuiObject accessInterface = new WFluidTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        WFTGuiObject accessInterface = new WFTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
 
         if (locator.hasItemIndex()) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new TermFactory(accessInterface,locator));
@@ -52,9 +51,16 @@ public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFl
 
     public static WirelessFluidTerminalContainer openClient(int windowId, PlayerInventory inv) {
         PlayerEntity player = inv.player;
-        ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
+        /*ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
         ContainerLocator locator = ContainerLocator.forHand(inv.player, Hand.MAIN_HAND);
-        WFluidTGuiObject host = new WFluidTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        WFluidTGuiObject host = new WFluidTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());*/
+        ItemStack it = ContainerHelper.getTerminal(player, "fluid");
+
+        if (it == null) {
+            return null;
+        }
+
+        WFTGuiObject host = new WFTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
         return new WirelessFluidTerminalContainer(windowId, inv, host);
     }
 

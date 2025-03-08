@@ -15,8 +15,8 @@ import tfar.ae2wt.WTConfig;
 import tfar.ae2wt.wirelesscraftingterminal.WirelessCraftingTerminalContainer;
 import tfar.ae2wt.wirelessfluidterminal.WirelessFluidTerminalContainer;
 import tfar.ae2wt.wirelessinterfaceterminal.WirelessInterfaceTerminalContainer;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
-import tfar.ae2wt.wut.WUTHandler;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelessuniversalterminal.WUTHandler;
 
 public class Menus {
     public static ContainerType<WirelessInterfaceTerminalContainer> WIT = IForgeContainerType.create((int windowId1, PlayerInventory inv1, PacketBuffer inv12) -> WirelessInterfaceTerminalContainer.openClient(windowId1, inv1));

@@ -1,4 +1,4 @@
-package tfar.ae2wt.wut.recipe;
+package tfar.ae2wt.wirelessuniversalterminal.recipe;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

@@ -49,9 +49,10 @@ import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 import tfar.ae2wt.terminal.InternalInventory;
 import tfar.ae2wt.terminal.SlotType;
 import tfar.ae2wt.terminal.WTInventoryHandler;
+import tfar.ae2wt.util.ContainerHelper;
 import tfar.ae2wt.wirelesscraftingterminal.magnet_card.ItemMagnetCard;
 import tfar.ae2wt.wirelesscraftingterminal.magnet_card.MagnetSettings;
-import tfar.ae2wt.wut.WUTItem;
+import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
 
 import java.util.List;
 import java.util.Objects;
@@ -61,9 +62,18 @@ import com.google.common.base.Preconditions;
 public class WirelessCraftingTerminalContainer extends ItemTerminalContainer implements IContainerCraftingPacket, IAEAppEngInventory {
     public static WirelessCraftingTerminalContainer openClient(int windowId, PlayerInventory inv) {
         PlayerEntity player = inv.player;
+
+        /*
         ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
-        ContainerLocator locator = ContainerLocator.forHand(inv.player, Hand.MAIN_HAND);
-        WCTGuiObject host = new WCTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+        ContainerLocator locator = ContainerLocator.forHand(inv.player, Hand.MAIN_HAND);*/
+
+        ItemStack it = ContainerHelper.getTerminal(player, "crafting");
+
+        if (it == null) {
+            return null;
+        }
+
+        WCTGuiObject host = new WCTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
         return new WirelessCraftingTerminalContainer(windowId, inv, host);
     }
 
@@ -81,7 +91,8 @@ public class WirelessCraftingTerminalContainer extends ItemTerminalContainer imp
 
     public static void openServer(PlayerEntity player, ContainerLocator locator) {
         ItemStack it = player.inventory.getStackInSlot(locator.getItemIndex());
-        WCTGuiObject accessInterface = new WCTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player, locator.getItemIndex());
+
+        WCTGuiObject accessInterface = new WCTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
 
         if (locator.hasItemIndex()) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new TermFactory(accessInterface, locator));
@@ -193,7 +204,7 @@ public class WirelessCraftingTerminalContainer extends ItemTerminalContainer imp
     //todo, support things outside of mainhand
     @Override
     public boolean canInteractWith(PlayerEntity player) {
-        return wctGUIObject.getItemStack() == player.getHeldItemMainhand();
+        return ContainerHelper.getTerminalItemSlot(player, "") > -1;
     }
 
     @Override

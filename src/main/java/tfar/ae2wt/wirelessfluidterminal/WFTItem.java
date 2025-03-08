@@ -6,8 +6,8 @@ import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 
 import java.util.function.DoubleSupplier;
 
-public class WirelessFluidTerminalItem extends AbstractWirelessTerminalItem {
-    public WirelessFluidTerminalItem(DoubleSupplier powerCapacity, Properties props) {
+public class WFTItem extends AbstractWirelessTerminalItem {
+    public WFTItem(DoubleSupplier powerCapacity, Properties props) {
         super(powerCapacity, props);
     }
 

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tfar.ae2wt.net.C2SSwitchGuiPacket;
 import tfar.ae2wt.net.PacketHandler;
 import tfar.ae2wt.wirelesscraftingterminal.WirelessCraftingTerminalScreen;
-import tfar.ae2wt.wpt.WirelessPatternTerminalScreen;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalScreen;
 
 @Mixin(MEMonitorableScreen.class)
 public class MeMonitorableScreenWireless {

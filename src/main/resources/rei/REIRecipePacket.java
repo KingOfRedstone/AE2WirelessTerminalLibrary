@@ -24,7 +24,7 @@ import appeng.util.item.AEItemStack;
 import appeng.util.prioritylist.IPartitionList;
 import com.google.common.base.Preconditions;
 import com.mojang.datafixers.util.Pair;
-import tfar.ae2wt.wpt.WirelessPatternTerminalContainer;
+import tfar.ae2wt.wirelesspatternterminal.WirelessPatternTerminalContainer;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.item.ItemStack;

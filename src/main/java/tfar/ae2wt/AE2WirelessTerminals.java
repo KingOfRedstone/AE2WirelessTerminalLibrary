@@ -66,6 +66,7 @@ public class AE2WirelessTerminals {
         register("wireless_crafting_terminal", ModItems.CRAFTING_TERMINAL, e.getRegistry());
         register("wireless_pattern_terminal", ModItems.PATTERN_TERMINAL, e.getRegistry());
         register("wireless_interface_terminal", ModItems.INTERFACE_TERMINAL, e.getRegistry());
+
         register("wireless_universal_terminal", ModItems.UNIVERSAL_TERMINAL, e.getRegistry());
         register("wireless_fluid_terminal",ModItems.WIRELESS_FLUID_TERMINAL,e.getRegistry());
     }

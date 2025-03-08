@@ -1,4 +1,4 @@
-package tfar.ae2wt.wpt;
+package tfar.ae2wt.wirelesspatternterminal;
 
 import appeng.api.networking.energy.IEnergySource;
 import appeng.api.networking.security.IActionSource;

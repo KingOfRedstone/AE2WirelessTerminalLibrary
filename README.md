@@ -16,6 +16,11 @@ which allows terminals to work from everywhere and even across dimensions.
 
 It also adds a wireless universal terminal which has all wireless terminals in one item
 
+## Changes to the Original
+The current version of [Applied Energistics 2 Wireless Terminals](https://github.com/Mari023/AE2WirelessTerminalLibrary)
+lacks the support of opening the wireless terminals with key bindings. This forked version tries
+to add this functionality.
+
 ## Missing Features / Known Issues
 
 - Wireless Fluid Terminal
@@ -27,6 +32,7 @@ It also adds a wireless universal terminal which has all wireless terminals in o
 
 * Applied Energistics 2 Wireless Terminals
   - (c) 2021 Tfarecnim
+  - forked by KingOfRedstone
   - [![License](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 * Textures

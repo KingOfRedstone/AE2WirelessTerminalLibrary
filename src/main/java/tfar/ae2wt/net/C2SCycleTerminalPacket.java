@@ -7,8 +7,8 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;
-import tfar.ae2wt.wut.WUTItem;
-import tfar.ae2wt.wut.WUTHandler;
+import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
+import tfar.ae2wt.wirelessuniversalterminal.WUTHandler;
 
 import java.util.function.Supplier;
 

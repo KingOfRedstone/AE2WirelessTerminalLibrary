@@ -1,4 +1,4 @@
-package tfar.ae2wt.wut.recipe;
+package tfar.ae2wt.wirelessuniversalterminal.recipe;
 
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.ItemStack;
@@ -7,7 +7,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import tfar.ae2wt.wut.WUTHandler;
+import tfar.ae2wt.wirelessuniversalterminal.WUTHandler;
 
 public class Upgrade extends Common {
     private final Ingredient Terminal;

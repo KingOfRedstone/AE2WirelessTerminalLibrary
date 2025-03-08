@@ -7,8 +7,6 @@ import appeng.client.gui.style.ScreenStyle;
 import appeng.client.gui.widgets.ActionButton;
 import appeng.client.gui.widgets.IconButton;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screen.inventory.InventoryScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -19,8 +17,8 @@ import tfar.ae2wt.net.server.C2SSetMagnetModePacket;
 import tfar.ae2wt.util.ItemButton;
 import tfar.ae2wt.wirelesscraftingterminal.magnet_card.MagnetMode;
 import tfar.ae2wt.wirelesscraftingterminal.magnet_card.MagnetSettings;
-import tfar.ae2wt.wut.CycleTerminalButton;
-import tfar.ae2wt.wut.IUniversalTerminalCapable;
+import tfar.ae2wt.wirelessuniversalterminal.CycleTerminalButton;
+import tfar.ae2wt.wirelessuniversalterminal.IUniversalTerminalCapable;
 
 public class WirelessCraftingTerminalScreen extends ItemTerminalScreen<WirelessCraftingTerminalContainer> implements IUniversalTerminalCapable {
 

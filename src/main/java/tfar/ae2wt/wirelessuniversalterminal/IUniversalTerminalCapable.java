@@ -1,4 +1,4 @@
-package tfar.ae2wt.wut;
+package tfar.ae2wt.wirelessuniversalterminal;
 
 import tfar.ae2wt.net.C2SCycleTerminalPacket;
 import tfar.ae2wt.net.PacketHandler;
