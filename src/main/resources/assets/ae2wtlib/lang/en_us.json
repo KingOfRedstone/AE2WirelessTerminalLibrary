@@ -25,5 +25,7 @@
   "key.ae2wtlib.wft": "Open Wireless Fluid Terminal",
   "key.ae2wtlib.wit": "Open Wireless Interface Terminal",
   "key.ae2wtlib.wpt": "Open Wireless Pattern Terminal",
-  "key.ae2wtlib.wut": "Open Wireless Universal Terminal"
+  "key.ae2wtlib.wut": "Open Wireless Universal Terminal",
+
+  "chat.ae2wtlib.terminal_not_found": "Terminal not found!"
 }
