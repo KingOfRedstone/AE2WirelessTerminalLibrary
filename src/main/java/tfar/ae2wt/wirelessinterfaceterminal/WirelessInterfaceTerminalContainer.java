@@ -28,6 +28,7 @@ import appeng.util.inv.filter.IAEItemFilter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.container.ClickType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Hand;
@@ -108,6 +109,16 @@ public class WirelessInterfaceTerminalContainer extends AEBaseContainer {
         final WTInventoryHandler fixedWITInv = new WTInventoryHandler(ip, witGUIObject.getItemStack(), this);
         //173, 129
         addSlot(new AppEngSlot(fixedWITInv, WTInventoryHandler.INFINITY_BOOSTER_CARD));
+    }
+
+    //The game crashes when ClickType.PICKUP_ALL is called in the WirelessInterfaceTerminalContainer,
+    //could not find the cause of this -> disabled the PICKUP_ALL, it is probably not needed anyway
+    @Override
+    public ItemStack slotClick(int slot, int button, ClickType clickType, PlayerEntity entity) {
+        if (clickType != ClickType.PICKUP_ALL) {
+            return super.slotClick(slot, button,clickType, entity);
+        }
+        return ItemStack.EMPTY;
     }
 
     private double powerMultiplier = 1;

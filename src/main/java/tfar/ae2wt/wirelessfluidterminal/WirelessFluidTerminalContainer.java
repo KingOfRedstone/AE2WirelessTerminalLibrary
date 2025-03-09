@@ -61,16 +61,6 @@ public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFl
         }
     }
 
-    //The game crashes when ClickType.PICKUP_ALL is called in the WirelessFluidTerminalContainer,
-    //could not find the cause of this -> disabled the PICKUP_ALL, it is probably not needed anyway
-    @Override
-    public ItemStack slotClick(int slot, int button, ClickType clickType, PlayerEntity entity) {
-        if (clickType != ClickType.PICKUP_ALL) {
-            return super.slotClick(slot, button,clickType, entity);
-        }
-        return ItemStack.EMPTY;
-    }
-
     public static WirelessFluidTerminalContainer openClient(int windowId, PlayerInventory inv) {
         PlayerEntity player = inv.player;
         /*ItemStack it = inv.player.getHeldItem(Hand.MAIN_HAND);
@@ -84,6 +74,16 @@ public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFl
 
         WFTGuiObject host = new WFTGuiObject((AbstractWirelessTerminalItem) it.getItem(), it, player);
         return new WirelessFluidTerminalContainer(windowId, inv, host);
+    }
+
+    //The game crashes when ClickType.PICKUP_ALL is called in the WirelessFluidTerminalContainer,
+    //could not find the cause of this -> disabled the PICKUP_ALL, it is probably not needed anyway
+    @Override
+    public ItemStack slotClick(int slot, int button, ClickType clickType, PlayerEntity entity) {
+        if (clickType != ClickType.PICKUP_ALL) {
+            return super.slotClick(slot, button,clickType, entity);
+        }
+        return ItemStack.EMPTY;
     }
 
     protected void handleNetworkInteraction(ServerPlayerEntity player, @Nullable IAEFluidStack stack, InventoryAction action) {
