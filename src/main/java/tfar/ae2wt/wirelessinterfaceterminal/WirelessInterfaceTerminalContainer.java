@@ -44,6 +44,7 @@ import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 import tfar.ae2wt.terminal.WTGuiObject;
 import tfar.ae2wt.terminal.WTInventoryHandler;
 import tfar.ae2wt.util.ContainerHelper;
+import tfar.ae2wt.wirelesscraftingterminal.WCTItem;
 import tfar.ae2wt.wirelessfluidterminal.WFTGuiObject;
 import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
 
@@ -92,6 +93,15 @@ public class WirelessInterfaceTerminalContainer extends AEBaseContainer {
         if(isServer() && witGUIObject.getActionableNode() != null) {
             grid = witGUIObject.getActionableNode().getGrid();
         }
+
+        int slot;
+        if (ip.getStackInSlot(ip.currentItem).getItem() instanceof WITItem) {
+            slot = ip.currentItem;
+        }else {
+            slot = ContainerHelper.getTerminalItemSlot(ip.player, "interface");
+        }
+
+        lockPlayerInventorySlot(slot);
 
         this.createPlayerInventorySlots(ip);
 

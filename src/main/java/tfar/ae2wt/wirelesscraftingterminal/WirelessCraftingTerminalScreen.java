@@ -25,7 +25,7 @@ public class WirelessCraftingTerminalScreen extends ItemTerminalScreen<WirelessC
     ItemButton magnetCardToggleButton;
 
     public WirelessCraftingTerminalScreen(WirelessCraftingTerminalContainer container, PlayerInventory playerInventory, ITextComponent title, ScreenStyle style) {
-        super(container, playerInventory, title,style);
+        super(container, playerInventory, title, style);
         ActionButton clearBtn = new ActionButton(ActionItems.STASH, (btn) -> container.clearCraftingGrid());
         clearBtn.setHalfSize(true);
         widgets.add("clearCraftingGrid", clearBtn);

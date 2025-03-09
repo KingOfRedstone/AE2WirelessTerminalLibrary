@@ -15,6 +15,7 @@ import appeng.util.Platform;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.container.ClickType;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.LazyOptional;
@@ -26,18 +27,29 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import tfar.ae2wt.init.Menus;
 import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 import tfar.ae2wt.util.ContainerHelper;
-import tfar.ae2wt.wirelesscraftingterminal.WCTGuiObject;
 
 import javax.annotation.Nullable;
 
 public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFluidStack> {
 
     public WirelessFluidTerminalContainer(int id, PlayerInventory ip, ITerminalHost monitorable) {
-        this(Menus.WIRELESS_FLUID_TERMINAL, id, ip, monitorable, true);
+        this(Menus.WIRELESS_FLUID_TERMINAL, id, ip, monitorable, false);
     }
 
     public WirelessFluidTerminalContainer(ContainerType<?> containerType, int id, PlayerInventory ip, ITerminalHost host, boolean bindInventory) {
         super(containerType, id, ip, host, bindInventory, Api.instance().storage().getStorageChannel(IFluidStorageChannel.class));
+
+        int slot;
+
+        if (ip.getStackInSlot(ip.currentItem).getItem() instanceof WFTItem) {
+            slot = ip.currentItem;
+        }else {
+            slot = ContainerHelper.getTerminalItemSlot(ip.player, "fluid");
+        }
+
+        this.lockPlayerInventorySlot(slot);
+
+        this.createPlayerInventorySlots(ip);
     }
 
     public static void openServer(PlayerEntity player, ContainerLocator locator) {
@@ -47,6 +59,16 @@ public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFl
         if (locator.hasItemIndex()) {
             NetworkHooks.openGui((ServerPlayerEntity) player, new TermFactory(accessInterface,locator));
         }
+    }
+
+    //The game crashes when ClickType.PICKUP_ALL is called in the WirelessFluidTerminalContainer,
+    //could not find the cause of this -> disabled the PICKUP_ALL, it is probably not needed anyway
+    @Override
+    public ItemStack slotClick(int slot, int button, ClickType clickType, PlayerEntity entity) {
+        if (clickType != ClickType.PICKUP_ALL) {
+            return super.slotClick(slot, button,clickType, entity);
+        }
+        return ItemStack.EMPTY;
     }
 
     public static WirelessFluidTerminalContainer openClient(int windowId, PlayerInventory inv) {

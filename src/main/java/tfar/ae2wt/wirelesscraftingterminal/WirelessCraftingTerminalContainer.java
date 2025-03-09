@@ -103,10 +103,11 @@ public class WirelessCraftingTerminalContainer extends ItemTerminalContainer imp
         super(Menus.WCT, id, ip, host, false);
         wctGUIObject = Objects.requireNonNull(host);
         wtInventoryHandler = new WTInventoryHandler(getPlayerInventory(), wctGUIObject.getItemStack(), this);
-        if (host instanceof IInventorySlotAware) {
-            this.slot = ((IInventorySlotAware) wctGUIObject).getInventorySlot();
-        } else {
+
+        if (ip.getStackInSlot(ip.currentItem).getItem() instanceof WCTItem) {
             this.slot = ip.currentItem;
+        }else {
+            this.slot = ContainerHelper.getTerminalItemSlot(ip.player, "crafting");
         }
 
         craftingGridInv = new InternalInventory(this, 9, SlotType.crafting, wctGUIObject.getItemStack());
@@ -119,6 +120,7 @@ public class WirelessCraftingTerminalContainer extends ItemTerminalContainer imp
                 new WirelessCraftingTermSlot(this.getPlayerInventory().player, this.getActionSource(), this.powerSource, host.getIStorageGrid(), craftingGridInv, craftingGridInv, this), SlotSemantic.CRAFTING_RESULT);
 
         this.lockPlayerInventorySlot(this.slot);
+
         this.createPlayerInventorySlots(ip);
 
         this.onCraftMatrixChanged(new WrapperInvItemHandler(craftingGridInv));

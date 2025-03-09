@@ -105,7 +105,11 @@ public class WPTGuiObject extends WTGuiObject implements IPortableCell, IAEAppEn
 
     @Override
     public int getInventorySlot() {
-        return ContainerHelper.getTerminalItemSlot(getPlayer(), "pattern");
+        if (getPlayer().inventory.getStackInSlot(getPlayer().inventory.currentItem).getItem() instanceof WPTItem) {
+            return getPlayer().inventory.currentItem;
+        }else {
+            return ContainerHelper.getTerminalItemSlot(getPlayer(), "pattern");
+        }
     }
 
 }
