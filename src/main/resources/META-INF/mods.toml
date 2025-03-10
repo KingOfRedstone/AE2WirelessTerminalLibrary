@@ -15,7 +15,7 @@ license="Unlicense"
 # The modid of the mod
 modId="ae2wtlib" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="${file.jarVersion}" #mandatory
+version="0.4.1" #mandatory
  # A display name for the mod
 displayName="AE2 Wireless Terminals" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -27,7 +27,7 @@ displayName="AE2 Wireless Terminals" #mandatory
 # A text field displayed in the mod UI
 #credits="Thanks for this example mod goes to Java" #optional
 # A text field displayed in the mod UI
-authors="mari_023,Tfarecnim" #optional
+authors="mari_023,Tfarecnim,KingOfRedstone" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 

@@ -4,7 +4,11 @@
   "package": "tfar.ae2wt.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "ae2wtlib.refmap.json",
-
+  "mixins": [
+    "AEBaseContainerAccess",
+    "CraftConfirmContainerMixin",
+    "ContainerTypeBuilderMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

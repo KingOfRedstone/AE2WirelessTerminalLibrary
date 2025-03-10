@@ -12,8 +12,10 @@ public class PacketHandler {
     public static SimpleChannel INSTANCE;
     static int i = 0;
 
+    private static final String PROTOCOL_VERSION = "1.1";
+
     public static void registerPackets() {
-        INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(AE2WirelessTerminals.MODID, AE2WirelessTerminals.MODID), () -> "1.0", s -> true, s -> true);
+        INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(AE2WirelessTerminals.MODID, AE2WirelessTerminals.MODID), () -> PROTOCOL_VERSION, s -> s.equals(PROTOCOL_VERSION), s -> s.equals(PROTOCOL_VERSION));
 
         INSTANCE.registerMessage(i++, C2SCycleTerminalPacket.class,
                 (message, buffer) -> {},
