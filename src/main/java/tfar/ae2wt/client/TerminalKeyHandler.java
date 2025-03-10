@@ -1,5 +1,8 @@
 package tfar.ae2wt.client;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.util.InputMappings;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import tfar.ae2wt.net.PacketHandler;
@@ -17,21 +20,25 @@ public class TerminalKeyHandler {
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         String type = null;
 
-        if (ae2wtlibclient.CRAFTING_TERMINAL_KEY.isPressed()) {
+        if (isPressed(ae2wtlibclient.CRAFTING_TERMINAL_KEY)) {
             type = "crafting";
-        }else if (ae2wtlibclient.FLUID_TERMINAL_KEY.isPressed()) {
+        }else if (isPressed(ae2wtlibclient.FLUID_TERMINAL_KEY)) {
             type = "fluid";
-        }else if (ae2wtlibclient.INTERFACE_TERMINAL_KEY.isPressed()) {
+        }else if (isPressed(ae2wtlibclient.INTERFACE_TERMINAL_KEY)) {
             type = "interface";
-        }else if (ae2wtlibclient.PATTERN_TERMINAL_KEY.isPressed()) {
+        }else if (isPressed(ae2wtlibclient.PATTERN_TERMINAL_KEY)) {
             type = "pattern";
-        }else if (ae2wtlibclient.UNIVERSAL_TERMINAL_KEY.isPressed()) {
+        }else if (isPressed(ae2wtlibclient.UNIVERSAL_TERMINAL_KEY)) {
             type = "universal";
         }
 
         if (type != null) {
             PacketHandler.INSTANCE.sendToServer(new TerminalKeyPacket(type));
         }
+    }
+
+    private boolean isPressed(KeyBinding keyBinding) {
+        return InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBinding.getKey().getKeyCode());
     }
 
 }

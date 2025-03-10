@@ -55,6 +55,11 @@ public class TerminalKeyPacket {
         MinecraftServer server = player.getServer();
         if (server == null) return;
         server.execute(() -> {
+            if (player.openContainer != player.container) {
+                player.closeScreen();
+                return;
+            }
+
 
             ItemStack terminal = ContainerHelper.getTerminal(player, type);
             if (terminal == null) {
