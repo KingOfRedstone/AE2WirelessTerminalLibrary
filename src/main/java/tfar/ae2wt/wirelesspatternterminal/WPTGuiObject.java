@@ -100,7 +100,7 @@ public class WPTGuiObject extends WTGuiObject implements IPortableCell, IAEAppEn
 
     @Override
     public ContainerType<?> getType() {
-        return Menus.PATTERN;
+        return Menus.WPT;
     }
 
     @Override

@@ -17,7 +17,7 @@ public class WFTGuiObject extends WTGuiObject implements IPortableCell , IViewCe
 
     @Override
     public ContainerType<?> getType() {
-        return Menus.WIRELESS_FLUID_TERMINAL;
+        return Menus.WFT;
     }
 
 }

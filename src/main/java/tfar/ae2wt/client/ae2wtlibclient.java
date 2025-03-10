@@ -42,9 +42,9 @@ public class ae2wtlibclient {
 
     public static void setup(FMLClientSetupEvent e) {
         register(Menus.WCT, WirelessCraftingTerminalScreen::new,"/screens/wtlib/wireless_crafting_terminal.json");
-        register(Menus.PATTERN, WirelessPatternTerminalScreen::new,"/screens/wtlib/wireless_pattern_terminal.json");
+        register(Menus.WPT, WirelessPatternTerminalScreen::new,"/screens/wtlib/wireless_pattern_terminal.json");
         register(Menus.WIT, WITScreen::new,"/screens/wtlib/wireless_interface_terminal.json");
-        register(Menus.WIRELESS_FLUID_TERMINAL, WirelessFluidTerminalScreen::new,"/screens/terminals/fluid_terminal.json");
+        register(Menus.WFT, WirelessFluidTerminalScreen::new,"/screens/terminals/fluid_terminal.json");
 
         ClientRegistry.registerKeyBinding(CRAFTING_TERMINAL_KEY);
         ClientRegistry.registerKeyBinding(FLUID_TERMINAL_KEY);

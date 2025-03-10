@@ -35,7 +35,7 @@ public final class ae2wtlibSubScreen {
             previousContainerType = Menus.WCT;
         } else if(containerTarget instanceof WPTGuiObject) {
             previousContainerIcon = new ItemStack(ModItems.PATTERN_TERMINAL);
-            previousContainerType = Menus.PATTERN;
+            previousContainerType = Menus.WPT;
         } else {
             previousContainerIcon = null;
             previousContainerType = null;

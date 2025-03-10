@@ -39,7 +39,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ICraftingRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
@@ -54,7 +53,7 @@ import tfar.ae2wt.net.server.C2STogglePatternSubsitutionPacket;
 import tfar.ae2wt.terminal.AbstractWirelessTerminalItem;
 import tfar.ae2wt.terminal.WTInventoryHandler;
 import tfar.ae2wt.util.ContainerHelper;
-import tfar.ae2wt.wirelessinterfaceterminal.WITGuiObject;
+import tfar.ae2wt.wirelesscraftingterminal.WCTItem;
 import tfar.ae2wt.wirelessuniversalterminal.WUTItem;
 
 public class WirelessPatternTerminalContainer extends ItemTerminalContainer implements IOptionalSlotHost, IContainerCraftingPacket {
@@ -101,7 +100,7 @@ public class WirelessPatternTerminalContainer extends ItemTerminalContainer impl
     public boolean substitute;
 
     public WirelessPatternTerminalContainer(int id, final PlayerInventory ip, final WPTGuiObject gui) {
-        super(Menus.PATTERN, id, ip, gui, false);
+        super(Menus.WPT, id, ip, gui, false);
         wptGUIObject = gui;
 
         final int slotIndex = ((IInventorySlotAware) wptGUIObject).getInventorySlot();
@@ -457,4 +456,13 @@ public class WirelessPatternTerminalContainer extends ItemTerminalContainer impl
     //public ItemStack[] getViewCells() {
     //    return wptGUIObject.getViewCellStorage().getViewCells();
    // }
+
+    @Override
+    public ContainerLocator getLocator() {
+        if (getPlayerInventory().getStackInSlot(getPlayerInventory().currentItem).getItem() instanceof WCTItem) {
+            return ContainerHelper.getContainerLocatorForSlot(getPlayerInventory().currentItem);
+        }else {
+            return ContainerHelper.getContainerLocatorForSlot(ContainerHelper.getTerminalItemSlot(getPlayerInventory().player, "pattern"));
+        }
+    }
 }

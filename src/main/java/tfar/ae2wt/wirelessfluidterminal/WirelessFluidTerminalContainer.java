@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
 public class WirelessFluidTerminalContainer extends MEMonitorableContainer<IAEFluidStack> {
 
     public WirelessFluidTerminalContainer(int id, PlayerInventory ip, ITerminalHost monitorable) {
-        this(Menus.WIRELESS_FLUID_TERMINAL, id, ip, monitorable, false);
+        this(Menus.WFT, id, ip, monitorable, false);
     }
 
     public WirelessFluidTerminalContainer(ContainerType<?> containerType, int id, PlayerInventory ip, ITerminalHost host, boolean bindInventory) {
